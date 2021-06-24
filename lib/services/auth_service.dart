@@ -10,7 +10,6 @@ class AuthService {
     //     Uri.parse('http://192.168.137.1:8080/api/v1/auth/signin'),
     //     body: jsonEncode(auth),
     //     headers: {'Content-Type': 'application/json;charset=utf-8'});
-    // print('${response.body}');
 
     // if (!response.body.startsWith("{")) throw Exception('${response.body}');
 

@@ -25,7 +25,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       try {
         RegisteredUser result = await authService.authUser(event.authModel);
         storageUtil.storeAuth(result);
+
         yield AuthenticatedState(registeredUser: result);
+        Get.offAllNamed('/profile');
       } catch (e) {
         yield ErrorState(
             message: e.toString().substring(e.toString().indexOf(':') + 1));

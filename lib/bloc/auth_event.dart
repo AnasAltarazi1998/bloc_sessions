@@ -5,6 +5,5 @@ abstract class AuthEvent {}
 
 class LoginEvent extends AuthEvent {
   AuthModel authModel;
-
   LoginEvent({this.authModel});
 }

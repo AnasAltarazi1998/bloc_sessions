@@ -28,9 +28,7 @@ class Login extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: BlocConsumer<AuthBloc, AuthState>(
             listener: (context, state) {
-              if (state is AuthenticatedState)
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil('/profile', (route) => false);
+              if (state is AuthenticatedState) Get.offAllNamed('/profile');
             },
             builder: (context, state) {
               if (state is AuthInitial) {
