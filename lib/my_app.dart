@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MyApp extends StatefulWidget {
   MyApp({Key key}) : super(key: key);
@@ -31,10 +32,12 @@ class _MyAppState extends State<MyApp> {
           Container(
             child: Text(
               'hello flutter',
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.blueAccent.shade200,
-              ),
+            ),
+            alignment: Alignment.center,
+          ),
+          Container(
+            child: Text(
+              'hello flutter',
             ),
             alignment: Alignment.center,
           ),
@@ -47,9 +50,16 @@ class _MyAppState extends State<MyApp> {
               ),
             ),
           ),
-          ElevatedButton(
-            onPressed: () => _addName(name: nameController.text),
-            child: Text('send'),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: ElevatedButton(
+              onPressed: () => _addName(name: nameController.text),
+              child: Container(
+                alignment: Alignment.center,
+                child: Text('send'),
+                width: double.infinity,
+              ),
+            ),
           ),
         ],
       ),
