@@ -32,10 +32,15 @@ class MyMApp extends StatelessWidget {
 ThemeData appTheme() {
   ThemeData appTheme = ThemeData();
   return appTheme.copyWith(
+    sliderTheme: SliderThemeData(
+        activeTrackColor: Colors.indigo,
+        thumbColor: Colors.white,
+        inactiveTickMarkColor: Colors.white,
+        inactiveTrackColor: Colors.indigo.shade100),
     textTheme: TextTheme(
       bodyText2: TextStyle(
           fontSize: 24,
-          color: Colors.indigo,
+          color: Colors.white,
           fontFamily: 'Iosevka',
           fontWeight: FontWeight.bold),
     ),

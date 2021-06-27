@@ -20,6 +20,7 @@ class _MyAppState extends State<MyApp> {
         .catchError((error) => print(error));
   }
 
+  double _value = 5;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,11 +30,36 @@ class _MyAppState extends State<MyApp> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            child: Text(
-              'hello flutter',
+          AnimatedContainer(
+            width: (_value) * 20,
+            curve: Curves.fastOutSlowIn,
+            height: (_value) * 20,
+            duration: Duration(seconds: 5),
+            child: Container(
+              color: Colors.deepOrange,
             ),
-            alignment: Alignment.center,
+          ),
+          Padding(padding: EdgeInsets.all(8)),
+          Opacity(
+            opacity: _value / 10,
+            child: Container(
+              color: Colors.indigo,
+              child: Text(
+                'hello flutter',
+              ),
+              alignment: Alignment.center,
+            ),
+          ),
+          Slider(
+            value: _value,
+            onChanged: (value) {
+              setState(() {
+                _value = value;
+              });
+            },
+            min: 0,
+            max: 10,
+            // divisions: 20,
           ),
           Container(
             child: Text(
